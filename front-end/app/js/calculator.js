@@ -5,23 +5,41 @@ var Calculator = function (){
         {
             throw "Cannot do the evaluation without params";
         }
-       // console.log("The max number",this.getSum(arguments ,arguments.length -1));
+       // console.log("The max number",this.getPlus(arguments ,arguments.length -1));
 
-            console.log("The sum is",this.getSum(arguments ));
+            console.log("The sum is",this.getPlus(arguments ));
             console.log("The max number",this.getMax(arguments ));
             console.log("The max number",this.getMin(arguments ));
     };
 
-
- this.getPlus=function(numbers,pos)
+ this.getPlus=function()
  {
-     if(typeof(arguments)==Object)
-        this. getSum(arguments[0]);
-     this.getSum(arguments);
+     if (typeof(arguments[0]) == 'Object')
+     {
+         return getSum(arguments[0]);
+     }
+     return getSum(arguments);
  };
 
+    this.getMax=function()
+    {
+        if (typeof(arguments[0]) == 'Object')
+        {
+            return getMaxim(arguments[0]);
+        }
+        return getMaxim(arguments);
+    };
 
-this.getSum= function (numbers,pos) {
+    this.getMin=function()
+    {
+        if (typeof(arguments[0]) == 'Object')
+        {
+            return getMini(arguments[0]);
+        }
+        return getMini(arguments);
+    };
+
+    var getSum= function (numbers,pos) {
 
         if(pos===undefined)
         {
@@ -31,10 +49,10 @@ this.getSum= function (numbers,pos) {
         if (pos == 0)
             return numbers[pos];
         else
-            return numbers[pos] + this.getSum(numbers, pos - 1);
+            return numbers[pos] + getSum(numbers, pos - 1);
     };
 
-this.getMax=function (numbers,pos,max){
+   var getMaxim=function (numbers,pos,max){
 
     if(pos===undefined)
     {
@@ -53,11 +71,11 @@ this.getMax=function (numbers,pos,max){
     if (pos==0)
         return max;
     else
-        return this.getMax(numbers,pos -1, max)
+        return getMaxim(numbers,pos -1, max)
 
 };
 
-    this.getMin=function (numbers,pos,min){
+    var getMini=function (numbers,pos,min){
 
         if(pos===undefined)
         {
@@ -76,7 +94,7 @@ this.getMax=function (numbers,pos,max){
         if (pos==0)
             return min;
         else
-            return this.getMin(numbers,pos -1, min)
+            return getMini(numbers,pos -1, min)
 
     };
 

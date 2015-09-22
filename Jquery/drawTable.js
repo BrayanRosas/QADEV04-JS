@@ -1,8 +1,7 @@
 //TRAINNER
 var drawTable = function(size,text){
-    var table = $('<table></table>');
+    var table = $('<table border="1"cellspacing="2"></table>');
     var row;
-
     for (var roww = 0; roww < size; roww++) {
         row = createRow();
 
@@ -17,7 +16,7 @@ var drawTable = function(size,text){
     //$('body').append(table);
 
     $('body').text('').append(table);
-    attacheListeners('X');
+    attacheListeners('x');
      // EN UNA SOLA LINEA
 };
 
@@ -27,7 +26,7 @@ var createRow = function(){
 };
 
 var createCell = function(text){
-    var cell = $('<td>' + text + '</td>');
+    var cell = $('<td bgcolor="#66cdaa" >' + text + '</td>');
     return cell;
 };
 
@@ -40,8 +39,6 @@ var attacheListeners = function(text){
         // event.target donde se realizo el evento
         $(this).text(text);
         //console.log('First cell clicked', event.target);
-
-
         //setTable();
     });
 

@@ -2,7 +2,10 @@ var Game = function(name, tam){
   this.name = name;
   // TODO: Number of shots should be retrieved from a constant
   var maxNumShots = 100;
-  getMaxNumShots = function(){return maxNumShots};
+
+  getMaxNumShots = function(){
+    return maxNumShots
+  };
 
   var players = [];
   getPlayers = function(){return players};
@@ -19,7 +22,6 @@ var Game = function(name, tam){
         warning = 6;
       }
       warning++;
-
 
 
     }while(tamTableFalse || warning<6)
@@ -123,45 +125,4 @@ Game.prototype.createShipss = function(){
 
 
 
-
-
-
-
-/*var Game = function(name, tam){
-  this.name = name;
-  // TODO: Number of shots should be retrieved from a constant
-  this.maxNumShots = 10;
-  //this.tamTable = tam;
-  this.players = [];
-  this._createPlayers();
-};
-
-Game.prototype.start = function(){
-  console.log(this.name, ' game started');
-  console.log('Here should start the game logic');
-
-
-  // DISPARO
-  var numShots = 0;
-  do{
-    //this.players[0].table.display();
-    var pos = this.getUserShot();
-    numShots++;
-    //EVALUAR EL DISPARO
-    this.players[0].table.shot(0,0);
-  }while(numShots < 3);
-};
-
-Game.prototype._createPlayers = function(){
-  //TODO: Number of players should bn retrieved from a constant
-  var _numPlayers = 5;
-  for (var i = 0; i < _numPlayers; i++) {
-    var player = new Player('Player' + i);
-    this.players.push(player);
-  }
-};
-
-
-Game.prototype.getUserShot = function(){
-  return parseInt(window.prompt('Shot? (x)'));
-};*/
+module.exports=Game;
